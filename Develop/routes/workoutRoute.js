@@ -1,9 +1,9 @@
-const app = require("express");
-const workout = require("../modles/workoutModel.js");
+const router = require("express").Router();
+const workout = require("../models/workoutModel.js");
 
 
-app.get("/workout", (req, res) => {
-    db.workoutModel.find({})
+router.get("/api/workouts", (req, res) => {
+    workout.find({})
         .then(dbworkoutModel => {
             res.json(dbworkoutModel);
         })
@@ -12,26 +12,17 @@ app.get("/workout", (req, res) => {
         });
 });
 
-app.post("/submit", ({
-    body
-}, res) => {
-    db.Note.create(body)
-        .then(({
-            _id
-        }) => db.User.findOneAndUpdate({}, {
-            $push: {
-                notes: _id
-            }
-        }, {
-            new: true
-        }))
-        .then(dbUser => {
-            res.json(dbUser);
+
+router.post("/api/workouts", (req, res) => {
+    Workout.create({})
+        .then(dbWorkout => {
+            res.json(dbWorkout);
         })
         .catch(err => {
             res.json(err);
         });
 });
+
 
 // app.get("/populateduser", (req, res) => {
 //     db.User.find({})
@@ -43,3 +34,5 @@ app.post("/submit", ({
 //             res.json(err);
 //         });
 // });
+
+module.exports = router
