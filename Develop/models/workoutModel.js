@@ -34,7 +34,7 @@ const workoutSchema = new Schema({
     sets: {
         type: Number,
         unique: true,
-    }
+    },
 
     workoutCreated: {
         type: Date,
@@ -43,7 +43,7 @@ const workoutSchema = new Schema({
 
     lastUpdated: Date,
 
-    fullName: String
+    // fullName: String
 });
 
 // workoutSchema.methods.setFullName = function () {
@@ -58,6 +58,6 @@ workoutSchema.methods.lastUpdatedDate = function () {
     return this.lastUpdated;
 };
 
-const User = mongoose.model("User", workoutSchema);
+const Workout = mongoose.model("Workout", workoutSchema);
 
-module.exports = User;
+module.exports = Workout;
