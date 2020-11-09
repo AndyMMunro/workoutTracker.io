@@ -124,7 +124,7 @@ function handleToastAnimationEnd() {
   if (shouldNavigateAway) {
     location.href = "/";
   }
-}
+};
 
 function clearInputs() {
   cardioNameInput.value = "";
