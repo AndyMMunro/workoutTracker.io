@@ -43,20 +43,20 @@ router.put("/api/workouts/:id", (req, res) => {
         });
 });
 // updates info in data base by utilizing the ID number. 
-// router.put("/api/workouts/:id", ({
-//             body
-//         }, res) => {
-//             workout.findOneAndUpdate(body)
-//                 .then(({
-//                     _id
-//                 })) {
-//                     $push: {
-//                         workout: _id
-//                     }
-//                 }, {
-//                     new: true
-//                 }
+router.put("/api/workouts/:id", ({
+            body
+        }, res) => {
+            workout.findOneAndUpdate(body)
+                .then(({
+                    _id
+                })) {
+                    $push: {
+                        workout: _id
+                    }
+                }, {
+                    new: true
+                }
 
 
 
-module.exports = router
+            module.exports = router
