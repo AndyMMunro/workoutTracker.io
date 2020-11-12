@@ -50,11 +50,6 @@ const workoutSchema = new Schema({
 });
 
 
-// workoutSchema.methods.lastUpdatedDate = function () {
-//     this.lastUpdated = Date.now();
-
-//     return this.lastUpdated;
-// };
 workoutSchema.virtual("totalDuration").get(function () {
     return this.exercises.reduce((total, exercise) => {
         return total + exercise.duration
